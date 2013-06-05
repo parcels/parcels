@@ -8,7 +8,6 @@ class ParcelsController < ApplicationController
   end
 
   def create
-    @parcel = Parcel.find_or_create_by(barcode: params[:parcel][:barcode])
-    redirect_to @parcel
+    redirect_to parcel_path(id: params[:parcel][:barcode])
   end
 end
