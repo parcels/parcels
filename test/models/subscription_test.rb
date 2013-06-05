@@ -6,6 +6,6 @@ class SubscriptionTest < ActiveSupport::TestCase
   end
 
   def test_assigns_token_on_creation
-    refute_nil @subscription.confirmation_token  
+    refute_nil @subscription.token  
   end
 end
