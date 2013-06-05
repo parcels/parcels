@@ -34,6 +34,8 @@ gem 'iso3166_ru'
 group :test do
   gem 'minitest-rails'
   gem 'fabrication'
+  gem 'webmock'
+  gem 'vcr', '~>2.5.0'
 end
 
 gem 'pry-rails'
