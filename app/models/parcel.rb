@@ -1,5 +1,7 @@
 class Parcel < ActiveRecord::Base
   has_many :operations
+  has_many :subscriptions
+  has_many :users, through: :subscriptions
 
   def sync
     transaction do
@@ -9,6 +11,10 @@ class Parcel < ActiveRecord::Base
       self.synced_at = DateTime.now
       save
     end
+  end
+
+  def subscribe(email)
+    Subscription.create(user: User.find_or_create_by(email: email), parcel: self)
   end
 
   private
