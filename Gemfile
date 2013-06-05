@@ -26,6 +26,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 
 gem 'normalize-rails'
+gem 'bourbon', '~>3.1.6'
 gem 'slim-rails'
 
 gem 'russianpost'
