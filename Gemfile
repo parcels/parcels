@@ -39,6 +39,8 @@ group :test do
   gem 'vcr', '~>2.5.0'
 end
 
+gem 'puma'
+
 gem 'pry-rails'
 
 group :doc do
