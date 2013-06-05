@@ -42,6 +42,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fabrication (2.7.2)
     gyoku (1.0.0)
       builder (>= 2.1.2)
     hike (1.2.3)
@@ -153,6 +154,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  fabrication
   iso3166_ru
   jbuilder (~> 1.0.1)
   minitest-rails

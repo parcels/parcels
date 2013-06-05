@@ -31,7 +31,11 @@ gem 'slim-rails'
 gem 'russianpost'
 gem 'iso3166_ru'
 
-gem 'minitest-rails', group: :test
+group :test do
+  gem 'minitest-rails'
+  gem 'fabrication'
+end
+
 gem 'pry-rails'
 
 group :doc do
