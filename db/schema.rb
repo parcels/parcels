@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130605134501) do
+ActiveRecord::Schema.define(version: 20130605141138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20130605134501) do
   end
 
   create_table "post_offices", force: true do |t|
-    t.string   "postal_code",  null: false
+    t.string   "postal_code"
     t.string   "name"
     t.string   "country_code"
     t.datetime "created_at"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20130605134501) do
   end
 
   add_index "post_offices", ["country_code"], name: "index_post_offices_on_country_code", using: :btree
+  add_index "post_offices", ["name"], name: "index_post_offices_on_name", using: :btree
   add_index "post_offices", ["postal_code"], name: "index_post_offices_on_postal_code", using: :btree
 
 end
