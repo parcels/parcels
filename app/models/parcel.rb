@@ -5,6 +5,10 @@ class Parcel < ActiveRecord::Base
 
   validates :barcode, uniqueness: true
 
+  def to_param
+    barcode
+  end
+
   def delivered?
     delivered
   end
