@@ -5,6 +5,8 @@ class Parcel < ActiveRecord::Base
 
   validates :barcode, uniqueness: true
 
+  after_create :sync
+
   def to_param
     barcode
   end
