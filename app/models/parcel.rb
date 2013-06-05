@@ -13,6 +13,10 @@ class Parcel < ActiveRecord::Base
     end
   end
 
+  def subscribe(email)
+    Subscription.create(user: User.find_or_create_by(email: email), parcel: self)
+  end
+
   private
 
   def proxy
