@@ -4,7 +4,7 @@ class Subscription < ActiveRecord::Base
   belongs_to :user
   belongs_to :parcel
 
-  validates :user, uniqueness: { scope: :parcels }
+  validates :user, uniqueness: { scope: :parcel }
 
   after_create :assign_token
 
