@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130605133404) do
+ActiveRecord::Schema.define(version: 20130605133755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,19 @@ ActiveRecord::Schema.define(version: 20130605133404) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "operations", force: true do |t|
+    t.integer  "mass"
+    t.integer  "parcel_id"
+    t.integer  "operation_type_id"
+    t.integer  "post_office_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "operations", ["operation_type_id"], name: "index_operations_on_operation_type_id", using: :btree
+  add_index "operations", ["parcel_id"], name: "index_operations_on_parcel_id", using: :btree
+  add_index "operations", ["post_office_id"], name: "index_operations_on_post_office_id", using: :btree
 
   create_table "parcels", force: true do |t|
     t.string   "barcode",                    null: false
