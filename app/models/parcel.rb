@@ -3,6 +3,8 @@ class Parcel < ActiveRecord::Base
   has_many :subscriptions
   has_many :users, through: :subscriptions
 
+  validates :barcode, uniqueness: true
+
   def sync
     transaction do
       proxy.operations.each { |po| Operation.from_proxy(po, self) }
