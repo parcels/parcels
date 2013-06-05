@@ -1,5 +1,7 @@
 class Parcel < ActiveRecord::Base
   has_many :operations
+  has_many :subscriptions
+  has_many :users, through: :subscriptions
 
   def sync
     transaction do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130605152323) do
+ActiveRecord::Schema.define(version: 20130605152718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,20 @@ ActiveRecord::Schema.define(version: 20130605152323) do
   add_index "post_offices", ["country_code"], name: "index_post_offices_on_country_code", using: :btree
   add_index "post_offices", ["name"], name: "index_post_offices_on_name", using: :btree
   add_index "post_offices", ["postal_code"], name: "index_post_offices_on_postal_code", using: :btree
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "parcel_id"
+    t.boolean  "confirmed",          default: false
+    t.string   "confirmation_token"
+    t.datetime "notified_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscriptions", ["confirmation_token"], name: "index_subscriptions_on_confirmation_token", using: :btree
+  add_index "subscriptions", ["parcel_id"], name: "index_subscriptions_on_parcel_id", using: :btree
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",      null: false
