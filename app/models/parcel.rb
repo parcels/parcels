@@ -5,11 +5,15 @@ class Parcel < ActiveRecord::Base
 
   validates :barcode, uniqueness: true
 
+  def delivered?
+    delivered
+  end
+
   def sync
     transaction do
       proxy.operations.each { |po| Operation.from_proxy(po, self) }
 
-      self.delivered = true if self.operations.include?(OperationType.delivery)
+      self.delivered = true if operations.where(operation_type: OperationType.delivery).any?
       self.synced_at = DateTime.now
       save
     end

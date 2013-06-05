@@ -17,6 +17,7 @@ class ParcelTest < ActiveSupport::TestCase
     assert_operator OperationType.count, :>, 0
 
     assert_operator @parcel.synced_at, :>, DateTime.now - 5
+    assert @parcel.delivered?
   end
 
   def test_subscribes_to_parcel_updates
