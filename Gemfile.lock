@@ -25,6 +25,9 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    akami (1.2.0)
+      gyoku (>= 0.4.0)
+      nokogiri (>= 1.4.0)
     arel (4.0.0)
     atomic (1.1.9)
     builder (3.1.4)
@@ -38,8 +41,13 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    gyoku (1.0.0)
+      builder (>= 2.1.2)
     hike (1.2.3)
+    httpi (2.0.2)
+      rack
     i18n (0.6.4)
+    iso3166_ru (0.1.2)
     jbuilder (1.0.2)
       activesupport (>= 3.0.0)
     json (1.8.0)
@@ -52,6 +60,8 @@ GEM
       minitest (~> 4.7)
       rails (>= 3.0)
     multi_json (1.7.6)
+    nokogiri (1.5.9)
+    nori (2.0.4)
     normalize-rails (2.1.1)
     pg (0.15.1)
     polyglot (0.3.3)
@@ -74,12 +84,23 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    russianpost (0.5.1)
+      iso3166_ru (~> 0.1.2)
+      savon (~> 2.1.0)
     sass (3.2.9)
     sass-rails (4.0.0.rc1)
       railties (>= 4.0.0.beta, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0.rc0)
       tilt (~> 1.3)
+    savon (2.1.0)
+      akami (~> 1.2.0)
+      builder (>= 2.1.2)
+      gyoku (~> 1.0.0)
+      httpi (~> 2.0.2)
+      nokogiri (>= 1.4.0)
+      nori (~> 2.0.3)
+      wasabi (~> 3.0.0)
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
@@ -114,17 +135,22 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    wasabi (3.0.0)
+      httpi (~> 2.0)
+      nokogiri (>= 1.4.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  iso3166_ru
   jbuilder (~> 1.0.1)
   minitest-rails
   normalize-rails
   pg
   rails (= 4.0.0.rc1)
+  russianpost
   sass-rails (~> 4.0.0.rc1)
   sdoc
   slim-rails

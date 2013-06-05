@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 1.0.1'
 gem 'normalize-rails'
 gem 'slim-rails'
 
+gem 'russianpost'
+gem 'iso3166_ru'
+
 gem 'minitest-rails', group: :test
 
 group :doc do
