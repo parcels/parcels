@@ -25,6 +25,7 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    addressable (2.3.4)
     akami (1.2.0)
       gyoku (>= 0.4.0)
       nokogiri (>= 1.4.0)
@@ -39,9 +40,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    crack (0.3.2)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fabrication (2.7.2)
     gyoku (1.0.0)
       builder (>= 2.1.2)
     hike (1.2.3)
@@ -144,15 +147,20 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    vcr (2.5.0)
     wasabi (3.0.0)
       httpi (~> 2.0)
       nokogiri (>= 1.4.0)
+    webmock (1.11.0)
+      addressable (>= 2.2.7)
+      crack (>= 0.3.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  fabrication
   iso3166_ru
   jbuilder (~> 1.0.1)
   minitest-rails
@@ -166,3 +174,5 @@ DEPENDENCIES
   slim-rails
   turbolinks
   uglifier (>= 1.3.0)
+  vcr (~> 2.5.0)
+  webmock

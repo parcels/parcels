@@ -31,7 +31,13 @@ gem 'slim-rails'
 gem 'russianpost'
 gem 'iso3166_ru'
 
-gem 'minitest-rails', group: :test
+group :test do
+  gem 'minitest-rails'
+  gem 'fabrication'
+  gem 'webmock'
+  gem 'vcr', '~>2.5.0'
+end
+
 gem 'pry-rails'
 
 group :doc do
