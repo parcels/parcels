@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130605133755) do
+ActiveRecord::Schema.define(version: 20130605134501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,10 @@ ActiveRecord::Schema.define(version: 20130605133755) do
     t.integer  "post_office_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "happened_at"
   end
 
+  add_index "operations", ["happened_at"], name: "index_operations_on_happened_at", using: :btree
   add_index "operations", ["operation_type_id"], name: "index_operations_on_operation_type_id", using: :btree
   add_index "operations", ["parcel_id"], name: "index_operations_on_parcel_id", using: :btree
   add_index "operations", ["post_office_id"], name: "index_operations_on_post_office_id", using: :btree
