@@ -5,26 +5,38 @@ class ParcelTest < ActiveSupport::TestCase
     @parcel = Fabricate(:parcel)
   end
 
-  def test_syncs
-    assert_equal @parcel.operations.count, 0
-    assert_equal PostOffice.count, 0
-    assert_equal OperationType.count, 0
-
-    VCR.use_cassette(@parcel.barcode) { @parcel.sync }
-
-    assert_operator @parcel.operations.count, :>, 0
-    assert_operator PostOffice.count, :>, 0
-    assert_operator OperationType.count, :>, 0
-
-    assert_operator @parcel.synced_at, :>, DateTime.now - 5
-    assert @parcel.delivered?
-  end
-
   def test_subscribes_to_parcel_updates
     email = Fabricate.attributes_for(:user)[:email]
     subscription = @parcel.subscribe(email)
     
     assert_equal subscription.user.email, email
     assert_equal subscription.parcel, @parcel
+  end
+end
+
+class ParcelSyncTest < ActiveSupport::TestCase
+  def setup
+    @parcel = Fabricate(:parcel)
+    VCR.use_cassette(@parcel.barcode) { @parcel.sync }
+  end
+
+  def test_sync_adds_operations
+    assert @parcel.operations.any?
+  end
+
+  def test_sync_adds_post_offices
+    assert PostOffice.any?
+  end
+
+  def test_sync_adds_operation_types
+    assert OperationType.any?
+  end
+
+  def test_sync_checks_for_delivery
+    assert @parcel.delivered?
+  end
+
+  def test_sync_updates_parcel
+    refute_nil @parcel.synced_at
   end
 end
