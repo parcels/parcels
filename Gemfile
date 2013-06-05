@@ -28,7 +28,11 @@ gem 'jbuilder', '~> 1.0.1'
 gem 'normalize-rails'
 gem 'slim-rails'
 
+gem 'russianpost'
+gem 'iso3166_ru'
+
 gem 'minitest-rails', group: :test
+gem 'pry-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
