@@ -123,6 +123,7 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
+    simple_form (1.4.1)
     slim (1.3.9)
       temple (~> 0.6.3)
       tilt (~> 1.3, >= 1.3.3)
@@ -182,6 +183,7 @@ DEPENDENCIES
   russianpost
   sass-rails (~> 4.0.0.rc1)
   sdoc
+  simple_form
   slim-rails
   turbolinks
   uglifier (>= 1.3.0)
