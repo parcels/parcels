@@ -6,10 +6,9 @@ class Subscription < ActiveRecord::Base
 
   validates :user, uniqueness: { scope: :parcel }
 
-  after_create :assign_token
+  before_create :assign_token
 
   def assign_token
-    self.confirmation_token = SecureRandom.urlsafe_base64
-    save
+    self.token = SecureRandom.urlsafe_base64
   end
 end
