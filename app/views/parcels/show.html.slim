@@ -1,4 +1,9 @@
 h1 = @parcel.barcode
+= simple_form_for [@parcel, @subscription], remote: true do |f|
+  = f.simple_fields_for :user do |fu|
+    = fu.input :email
+  = f.submit
+
 table
   - @parcel.operations.each do |o|
     tr
