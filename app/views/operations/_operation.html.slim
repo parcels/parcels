@@ -1,0 +1,10 @@
+.operation
+  div
+    = operation.operation_type.russianpost_type
+    br
+    = operation.operation_type.russianpost_attr
+  div
+    = operation.post_office.postal_code
+    = operation.post_office.name
+  div = operation.happened_at.strftime('%e %B %Y, %k:%M')
+  div = (operation.mass / 1000.0).to_s + ' кг' if operation.mass
