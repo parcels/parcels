@@ -5,6 +5,8 @@ class Parcel < ActiveRecord::Base
 
   validates :barcode, uniqueness: true
 
+  scope :outdated, -> { where('synced_at < ?', 1.hour.ago) }
+
   after_create :queue_sync
 
   def to_param
