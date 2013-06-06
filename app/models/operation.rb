@@ -3,6 +3,8 @@ class Operation < ActiveRecord::Base
   belongs_to :operation_type
   belongs_to :post_office
 
+  default_scope -> { order 'happened_at DESC' }
+
   def self.from_proxy(proxy, parcel)
     operation = find_or_create_by(
       parcel: parcel,

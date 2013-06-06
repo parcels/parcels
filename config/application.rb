@@ -13,6 +13,13 @@ module Parcels
     # -- all .rb files in that directory are automatically loaded.
 
     config.generators do |g|
+      g.stylesheets false
+      g.javascripts false
+      g.helper false
+      g.view_specs false
+      g.integration_specs false
+      g.helper_specs false
+      g.controller_specs false
       g.test_framework      :mini_test, fixture_replacement: :fabrication
       g.fixture_replacement :fabrication, dir: "test/fabricators"
     end

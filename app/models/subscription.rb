@@ -11,4 +11,9 @@ class Subscription < ActiveRecord::Base
   def assign_token
     self.token = SecureRandom.urlsafe_base64
   end
+
+  def confirm
+    self.confirmed = true
+    save
+  end
 end

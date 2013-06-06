@@ -3,7 +3,6 @@ html
   head
     title = content_for?(:title) ? yield(:title) : "Parcels"
     = stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true
-    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   
