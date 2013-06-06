@@ -1,2 +1,16 @@
 @import "bourbon";
 @import "normalize-rails/normalize";
+
+body {
+  width: 600px;
+  margin: auto;
+}
+
+.operation {
+  margin-top: 20px;
+  background: #eeeeee;
+}
+
+h1 {
+  color: #c00;
+}
