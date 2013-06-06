@@ -5,7 +5,7 @@ class Parcel < ActiveRecord::Base
 
   validates :barcode, uniqueness: true
 
-  after_create :sync
+  after_create :queue_sync
 
   def to_param
     barcode
@@ -13,6 +13,10 @@ class Parcel < ActiveRecord::Base
 
   def delivered?
     delivered
+  end
+
+  def queue_sync
+    SyncWorker.perform_async(id)
   end
 
   def sync
