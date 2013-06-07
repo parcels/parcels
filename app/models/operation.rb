@@ -12,7 +12,7 @@ class Operation < ActiveRecord::Base
     
     operation.operation_type = OperationType.from_proxy(proxy)
     operation.post_office = PostOffice.from_proxy(proxy)
-    operation.mass = proxy.mass
+    operation.mass = proxy.mass unless proxy.mass == 0
     
     operation.save
   end
