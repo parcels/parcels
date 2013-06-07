@@ -5,4 +5,8 @@ h1 = @parcel.barcode
     = fu.input :email
   = f.submit
 
+- last_operation = @parcel.operations.first
+div = last_operation.post_office.name
+div = last_operation.post_office.country.name
+
 = render @parcel.operations
