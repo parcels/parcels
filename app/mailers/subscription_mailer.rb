@@ -1,25 +1,16 @@
 class SubscriptionMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: 'Parcels <parcels@parcels.io>'
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.subscription_mailer.confirmation.subject
-  #
-  def confirmation
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def confirmation(subscription_id)
+    @subscription = Subscription.find(subscription_id)
+    mail(to: @subscription.user.email,
+         subject: 'Подтвердите подписку')
   end
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.subscription_mailer.notification.subject
-  #
-  def notification
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def notification(subscription_id)
+    @subscription = Subscription.find(subscription_id)
+    @parcel = @subscription.parcel
+    mail(to: @subscription.user.email,
+         subject: "Посылка #{@parcel.barcode}: новая информация")
   end
 end
