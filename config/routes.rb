@@ -1,4 +1,8 @@
+require 'sidekiq/web'
+
 Parcels::Application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
+  
   get '/parcels' => 'parcels#index', as: 'parcels'
   get '/:id' => 'parcels#show', as: 'parcel'
   post '/parcels' => 'parcels#create'
