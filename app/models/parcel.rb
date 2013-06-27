@@ -7,7 +7,7 @@ class Parcel < ActiveRecord::Base
 
   scope :outdated, -> { where('synced_at < ?', 1.hour.ago) }
 
-  after_create :queue_sync
+  after_create :sync
 
   def to_param
     barcode
