@@ -29,6 +29,12 @@ class Parcel < ActiveRecord::Base
       self.synced_at = DateTime.now
       save
     end
+
+    subscriptions.each do |s|
+      if operations.first.created_at > s.notified_at
+        SubscriptionMailer.delay.notification(s.id)
+      end
+    end
   end
 
   def subscribe(email)

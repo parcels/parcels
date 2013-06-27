@@ -64,6 +64,10 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.0)
+    launchy (2.3.0)
+      addressable (~> 2.3)
+    letter_opener (1.1.1)
+      launchy (~> 2.2)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -191,6 +195,7 @@ DEPENDENCIES
   iso3166_ru
   jbuilder (~> 1.0.1)
   jquery-rails
+  letter_opener
   minitest-rails
   normalize-rails
   pg

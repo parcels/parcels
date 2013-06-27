@@ -6,6 +6,12 @@ class Subscription < ActiveRecord::Base
 
   validates :user, uniqueness: { scope: :parcel }
 
+  scope :pending_notifications, -> {
+    joins(parcel: :operations)
+      .where('notified_at IS NULL OR notified_at < operations.created_at')
+      .distinct
+  }
+
   before_create :assign_token
 
   def assign_token
