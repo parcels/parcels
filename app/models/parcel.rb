@@ -9,18 +9,6 @@ class Parcel < ActiveRecord::Base
 
   after_create :sync
 
-  def to_param
-    barcode
-  end
-
-  def delivered?
-    delivered
-  end
-
-  def queue_sync
-    SyncWorker.perform_async(id)
-  end
-
   def sync
     transaction do
       proxy.operations.each { |po| Operation.from_proxy(po, self) }
@@ -39,6 +27,18 @@ class Parcel < ActiveRecord::Base
 
   def subscribe(email)
     Subscription.create(user: User.find_or_create_by(email: email), parcel: self)
+  end
+
+  def to_param
+    barcode
+  end
+
+  def delivered?
+    delivered
+  end
+
+  def queue_sync
+    SyncWorker.perform_async(id)
   end
 
   private
