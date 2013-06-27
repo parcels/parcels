@@ -18,7 +18,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: parcels_development
-  pool: 5
+  pool: 50
   username: parcels
   password:
 

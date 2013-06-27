@@ -47,7 +47,8 @@ gem 'pry-rails'
 
 gem 'simple_form'
 
-gem 'sidekiq'
+gem 'sidekiq', '~> 2.12.4'
+gem 'sinatra', '>= 1.3.0', :require => nil
 
 gem 'letter_opener', group: :development
 
