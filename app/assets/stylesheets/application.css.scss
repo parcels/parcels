@@ -1,16 +1,83 @@
-@import "bourbon";
-@import "normalize-rails/normalize";
+@import 'bourbon';
+@import 'normalize-rails/normalize';
+@import 'glyphicons';
+
+@import 'config';
+@import 'operations';
+@import 'map';
+@import 'forms';
+
+* {
+  @include box-sizing(border-box);
+}
 
 body {
-  width: 600px;
+  @include text-font;
+  font-size: 17px;
+  background: #f2f1ef;
+}
+
+.wrapper {
+  width: 830px;
   margin: auto;
 }
 
-.operation {
-  margin-top: 20px;
-  background: #eeeeee;
+.module {
+  width: 100%;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 1px 2px rgba(0,0,0, 0.15);
+  margin-bottom: 20px;
+  padding: 30px 45px;
+
+  &.is-head {
+    background: $accent;
+    border-radius: 0 0 7px 7px;
+    padding: 15px 45px;
+  }
+
+  &.is-only {
+    margin-top: 18%;
+  }
+}
+
+.current_status-info {
+  display: inline-block;
+  width: 330px;
+  margin-right: 20px;
+  vertical-align: top;
+}
+
+.current_status-map {
+  display: inline-block;
+  width: 380px;
+  height: 220px;
+}
+
+h1, h2, h3 {
+  @include display-font;
 }
 
 h1 {
-  color: #c00;
+  margin: 0;
+  font-size: 51px;
+}
+
+h2 {
+  font-size: 35px;
+  line-height: 33px;
+  margin: 0 0 10px 0;
+}
+
+.intro {
+  font-size: 24px;
+  line-height: 30px;
+  margin: 0;
+}
+
+.logo {
+  width: 128px;
+  height: 40px;
+  background: asset-url('logo-white.svg');
+  display: inline-block;
 }

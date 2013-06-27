@@ -1,0 +1,15 @@
+.jvectormap-label {
+    position: absolute;
+    display: none;
+    color: black;
+    background: $accent;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 12px;
+    padding: 3px;
+    top: 20px !important;
+    left: 20px !important;
+}
+
+.jvectormap-zoomin, .jvectormap-zoomout {
+    display: none;
+}

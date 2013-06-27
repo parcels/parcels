@@ -1,10 +1,18 @@
-.operation
-  div
-    = operation.operation_type.russianpost_type
-    br
-    = operation.operation_type.russianpost_attr
-  div
+.operations-operation
+  .operation-date = operation.happened_at.strftime('%e.%m')
+  .operation-description
+    = operation.operation_type.russianpost_attr || operation.operation_type.russianpost_type
+  .operation-place 
     = operation.post_office.postal_code
-    = operation.post_office.name
-  div = operation.happened_at.strftime('%e %B %Y, %k:%M')
-  div = (operation.mass / 1000.0).to_s + ' кг' if operation.mass
+    = ' ' + operation.post_office.name
+  .operation-expand
+
+  / div
+  /   = operation.operation_type.russianpost_type
+  /   br
+  /   = operation.operation_type.russianpost_attr
+  / div
+  /   = operation.post_office.postal_code
+  /   = operation.post_office.name
+  / div = operation.happened_at.strftime('%e %B %Y, %k:%M')
+  / div = (operation.mass / 1000.0).to_s + ' кг' if operation.mass

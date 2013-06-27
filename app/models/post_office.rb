@@ -6,4 +6,8 @@ class PostOffice < ActiveRecord::Base
                       name:         proxy.operation_address.description,
                       country_code: proxy.country_oper.id.to_s)
   end
+
+  def country
+    Iso3166Ru.find_by(iso: country_code)
+  end
 end

@@ -1,0 +1,23 @@
+/*!
+ *
+ *  Project:  GLYPHICONS
+ *  Author:   Jan Kovarik - www.glyphicons.com
+ *  Twitter:  @jankovarik
+ *
+ */
+html {
+  -webkit-font-smoothing: antialiased !important;
+}
+@font-face {
+  font-family: 'Glyphicons';
+  src: url('/assets/glyphicons-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+.glyphicons {
+  display: inline-block;
+  font-family: 'Glyphicons';
+  text-decoration: none;
+  position: relative;
+  top: 0.1em;
+}
