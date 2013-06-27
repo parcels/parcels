@@ -25,6 +25,11 @@ class Parcel < ActiveRecord::Base
     end
   end
 
+  def autosync
+    sync if synced_at < 1.hour.ago
+    self
+  end
+
   def subscribe(email)
     Subscription.create(user: User.find_or_create_by(email: email), parcel: self)
   end

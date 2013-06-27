@@ -5,6 +5,7 @@ class ParcelsController < ApplicationController
 
   def show
     @parcel = Parcel.find_or_create_by(barcode: params[:id])
+    @parcel.autosync
   end
 
   def create
