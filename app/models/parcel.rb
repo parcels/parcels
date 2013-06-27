@@ -13,7 +13,7 @@ class Parcel < ActiveRecord::Base
     transaction do
       proxy.operations.each { |po| Operation.from_proxy(po, self) }
 
-      self.delivered = true if operations.where(operation_type: OperationType.delivery).any?
+      # self.delivered = true if operations.where(operation_type: OperationType.delivery).any?
       self.synced_at = DateTime.now
       save
     end
