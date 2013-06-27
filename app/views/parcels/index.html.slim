@@ -1,19 +1,10 @@
+- content_for :title, "Отслеживание посылок | Parcels"
+
 .wrapper
   .module.is-only
-    p.intro
-      | Parcels помогает узнать, где находится посылка, и сообщает обо всех ее перемещениях вам по электронной почте.
+    p.intro 
+      | Parcels помогает узнать, где находится посылка.
       br
       | Бесплатно и без регистрации.
 
-    = form_for @parcel, remote: true, html: { class: 'parcel-form is-home' } do |f|
-      = f.text_field :barcode,
-                      placeholder: 'XX123456789YY',
-                      required: true,
-                      maxlength: 14,
-                      pattern: '(^[A-Za-z]{2}\d{9}[A-Za-z]{2}$)|(^\d{14}$)',
-                      class: 'parcel-form-barcode'
-      = f.submit value: '',
-                 class: 'parcel-form-submit'
-      = f.label :barcode,
-                'Введите номер посылки и нажмите Enter',
-                 class: 'parcel-form-hint'
+    .parcel-form.is-home = render 'form'

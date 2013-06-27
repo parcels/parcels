@@ -9,10 +9,19 @@ form * {
     .parcel-form-submit {
       background: $accent;
     }
+
+    .parcel-form-hint-short {
+      display: none;
+    }
   }
 
   &.is-inside {
     display: inline-block;
+    float: right;
+
+    .parcel-form-hint-long {
+      display: none;
+    }
   }
 
   * {
@@ -30,7 +39,14 @@ form * {
   margin-right: 15px;
 }
 
-.parcel-form-hint {
+.parcel-form-hint-short {
+  font-size: 20px;
+  margin-right: 15px;
+  position: relative;
+  top: -4px;
+}
+
+.parcel-form-hint-long {
   color: #909090;
   margin-left: 20px;
   position: relative;

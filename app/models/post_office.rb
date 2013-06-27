@@ -10,4 +10,8 @@ class PostOffice < ActiveRecord::Base
   def country
     Iso3166Ru.find_by(iso: country_code)
   end
+
+  def to_s
+    "#{postal_code} #{name}"
+  end
 end
