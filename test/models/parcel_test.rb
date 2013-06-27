@@ -2,7 +2,9 @@ require 'test_helper'
 
 class ParcelTest < ActiveSupport::TestCase
   def setup
-    @parcel = Fabricate(:parcel)
+    VCR.use_cassette(Fabricate.attributes_for(:parcel)[:barcode]) do
+      @parcel = Fabricate(:parcel)
+    end
   end
 
   def test_subscribes_to_parcel_updates
@@ -16,8 +18,9 @@ end
 
 class ParcelSyncTest < ActiveSupport::TestCase
   def setup
-    @parcel = Fabricate(:parcel)
-    VCR.use_cassette(@parcel.barcode) { @parcel.sync }
+    VCR.use_cassette(Fabricate.attributes_for(:parcel)[:barcode]) do
+      @parcel = Fabricate(:parcel)
+    end
   end
 
   def test_sync_adds_operations

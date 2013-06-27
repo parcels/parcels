@@ -1,38 +1,23 @@
+- content_for :title, "#{@parcel.barcode} | Отслеживание посылок | Parcels"
+
 .wrapper
   .module.is-head
     = link_to root_path do
       .logo
-    = form_for @parcel, remote: true, html: { class: 'parcel-form is-inside' } do |f|
-      = f.text_field :barcode,
-                      placeholder: 'XX123456789YY',
-                      required: true,
-                      maxlength: 14,
-                      pattern: '(^[A-Za-z]{2}\d{9}[A-Za-z]{2}$)|(^\d{14}$)',
-                      class: 'parcel-form-barcode'
-      = f.submit value: '',
-                 class: 'parcel-form-submit'
+    .parcel-form.is-inside = render 'form'
 
+  - if @parcel.operations.any?
+    .module.current_status
+      .current_status-info
+        h1 = @parcel.barcode
+        - last_operation = @parcel.operations.first
+        div = last_operation.operation_type
+        div = l last_operation.happened_at, format: :long
+        div = last_operation.post_office.name
+        div = last_operation.post_office.country.name
 
-  .module.current_status
-    .current_status-info
-      h1 = @parcel.barcode
-      - last_operation = @parcel.operations.first
-      div = l last_operation.happened_at, format: :long
-      div = last_operation.post_office.name
-      div = last_operation.post_office.country.name
-    .map.current_status-map
-      .jvectormap-label
-
-
-  .module
-    h2 История операций
-    = render @parcel.operations
-
-  .module
-    h2 Подписка на обновления
-    p Робот Parcels проверяет состояние посылки каждый час. Если вы хотите, чтобы он сообщал вам об обновлениях, оставьте свой email.
-    
-    = form_for [@parcel, @subscription], remote: true do |f|
-      = f.fields_for :user do |fu|
-        = fu.email_field :email, required: true
-      = f.submit
+    .module
+      h2 История операций
+      = render @parcel.operations
+  - else
+    .module К сожалению, информации о вашей посылке у Parcels пока нет.

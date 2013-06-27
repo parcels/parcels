@@ -7,4 +7,8 @@ class OperationType < ActiveRecord::Base
     find_or_create_by(russianpost_type: proxy.oper_type.name,
                       russianpost_attr: proxy.oper_attr.name)
   end
+
+  def to_s
+    russianpost_attr || russianpost_type
+  end
 end

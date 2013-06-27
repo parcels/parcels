@@ -7,7 +7,28 @@ class Parcel < ActiveRecord::Base
 
   scope :outdated, -> { where('synced_at < ?', 1.hour.ago) }
 
-  after_create :queue_sync
+  after_create :sync
+
+  def sync
+    transaction do
+      proxy.operations.each { |po| Operation.from_proxy(po, self) }
+
+      self.delivered = true if operations.where(operation_type: OperationType.delivery).any?
+      self.synced_at = DateTime.now
+      save
+    end
+
+    self
+  end
+
+  def autosync
+    sync if synced_at < 1.hour.ago && !delivered?
+    self
+  end
+
+  def subscribe(email)
+    Subscription.create(user: User.find_or_create_by(email: email), parcel: self)
+  end
 
   def to_param
     barcode
@@ -19,26 +40,6 @@ class Parcel < ActiveRecord::Base
 
   def queue_sync
     SyncWorker.perform_async(id)
-  end
-
-  def sync
-    transaction do
-      proxy.operations.each { |po| Operation.from_proxy(po, self) }
-
-      self.delivered = true if operations.where(operation_type: OperationType.delivery).any?
-      self.synced_at = DateTime.now
-      save
-    end
-
-    subscriptions.each do |s|
-      if operations.first.created_at > s.notified_at
-        SubscriptionMailer.delay.notification(s.id)
-      end
-    end
-  end
-
-  def subscribe(email)
-    Subscription.create(user: User.find_or_create_by(email: email), parcel: self)
   end
 
   private

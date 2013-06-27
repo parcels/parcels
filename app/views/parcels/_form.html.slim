@@ -1,0 +1,15 @@
+= form_for @new_parcel do |f|
+  = f.label :barcode,
+            'Номер посылки:',
+             class: 'parcel-form-hint-short'
+  = f.text_field :barcode,
+                  placeholder: 'XX123456789YY',
+                  required: true,
+                  maxlength: 14,
+                  pattern: '(^[A-Za-z]{2}\d{9}[A-Za-z]{2}$)|(^\d{14}$)',
+                  class: 'parcel-form-barcode'
+  = f.submit value: '',
+             class: 'parcel-form-submit'
+  = f.label :barcode,
+            'Введите номер посылки и нажмите Enter',
+             class: 'parcel-form-hint-long'

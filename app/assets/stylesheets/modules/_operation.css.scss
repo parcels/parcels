@@ -1,9 +1,4 @@
-.operations {
-  border-top: 1px solid #ccc;
-  margin-top: 30px;
-}
-
-.operations-operation {
+.operation {
   border-bottom: 1px solid #e0e1e2;
   padding: 20px 0;
   width: 100%;
@@ -12,22 +7,9 @@
     border-bottom: none;
   }
 
-  &:hover {
-    background: $accent;
-    cursor: pointer;
-
-    .operation-expand {
-      &:after {
-        color: #000;
-      }
-    }
-  }
-
   div {
     display: inline-block;
     vertical-align: top;
-    overflow: hidden;
-    white-space: nowrap;
   }
 }
 
@@ -48,12 +30,4 @@
 .operation-place {
   width: 355px;
   margin-right: 20px;
-}
-
-.operation-expand {
-  &:after {
-    content: '\e191';
-    font-family: 'Glyphicons';
-    color: #ccc;
-  }
 }

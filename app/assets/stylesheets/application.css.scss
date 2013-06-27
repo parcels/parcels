@@ -3,9 +3,9 @@
 @import 'glyphicons';
 
 @import 'config';
-@import 'operations';
-@import 'map';
 @import 'forms';
+
+@import 'modules/operation';
 
 * {
   @include box-sizing(border-box);
@@ -15,6 +15,7 @@ body {
   @include text-font;
   font-size: 17px;
   background: #f2f1ef;
+  color: #3c383d;
 }
 
 .wrapper {
@@ -61,6 +62,8 @@ h1, h2, h3 {
 h1 {
   margin: 0;
   font-size: 51px;
+  line-height: 51px;
+  margin-bottom: 20px;
 }
 
 h2 {
@@ -76,8 +79,8 @@ h2 {
 }
 
 .logo {
-  width: 128px;
-  height: 40px;
-  background: asset-url('logo-white.svg');
+  width: 123px;
+  height: 28px;
+  background: asset-url('logo.svg') no-repeat;
   display: inline-block;
 }

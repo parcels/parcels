@@ -1,11 +1,12 @@
 class ParcelsController < ApplicationController
   def index
-    @parcel = Parcel.new
+    @new_parcel = Parcel.new
   end
 
   def show
-    @parcel = Parcel.find_or_create_by(barcode: params[:id])
-    @subscription = Subscription.new(parcel: @parcel)
+    @parcel = Parcel.find_or_create_by(barcode: params[:id].upcase)
+    @new_parcel = Parcel.new(barcode: @parcel.barcode)
+    @parcel.autosync
   end
 
   def create
