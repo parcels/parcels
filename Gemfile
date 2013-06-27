@@ -39,6 +39,7 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'sentry-raven'
 end
 
 group :doc do
