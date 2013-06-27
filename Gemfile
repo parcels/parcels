@@ -37,6 +37,10 @@ group :test do
   gem 'vcr', '~>2.5.0'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :doc do
   gem 'sdoc', require: false
 end
