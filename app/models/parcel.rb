@@ -18,11 +18,7 @@ class Parcel < ActiveRecord::Base
       save
     end
 
-    subscriptions.each do |s|
-      if operations.first.created_at > s.notified_at
-        SubscriptionMailer.delay.notification(s.id)
-      end
-    end
+    self
   end
 
   def autosync
