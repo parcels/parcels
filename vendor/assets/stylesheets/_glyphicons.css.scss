@@ -10,7 +10,7 @@ html {
 }
 @font-face {
   font-family: 'Glyphicons';
-  src: url('/assets/glyphicons-regular.woff') format('woff');
+  src: asset-url('/assets/glyphicons-regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
