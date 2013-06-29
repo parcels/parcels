@@ -9,6 +9,6 @@ class OperationType < ActiveRecord::Base
   end
 
   def to_s
-    russianpost_attr || russianpost_type
+    description || russianpost_attr || russianpost_type
   end
 end
