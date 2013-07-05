@@ -16,6 +16,12 @@ class ParcelTest < ActiveSupport::TestCase
   end
 end
 
+class ParcelValidationTest < ActiveSupport::TestCase
+  def test_validates_barcode
+    refute Fabricate.build(:invalid_parcel).valid?
+  end
+end
+
 class ParcelSyncTest < ActiveSupport::TestCase
   def setup
     VCR.use_cassette(Fabricate.attributes_for(:parcel)[:barcode]) do
