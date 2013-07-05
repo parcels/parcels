@@ -6,18 +6,21 @@
       .logo
     .parcel-form.is-inside = render 'form'
 
-  - if @parcel.operations.any?
-    .module.current_status
-      .current_status-info
-        h1 = @parcel.barcode
-        - last_operation = @parcel.operations.first
-        div = last_operation.operation_type
-        div = l last_operation.happened_at, format: :long
-        div = last_operation.post_office.name
-        div = last_operation.post_office.country.name
+  - if @parcel.valid?
+    - if @parcel.operations.any?
+      .module.current_status
+        .current_status-info
+          h1 = @parcel.barcode
+          - last_operation = @parcel.operations.first
+          div = last_operation.operation_type
+          div = l last_operation.happened_at, format: :long
+          div = last_operation.post_office.name
+          div = last_operation.post_office.country.name
 
-    .module
-      h2 История операций
-      = render @parcel.operations
+      .module
+        h2 История операций
+        = render @parcel.operations
+    - else
+      .module К сожалению, информации о вашей посылке у Parcels пока нет.
   - else
-    .module К сожалению, информации о вашей посылке у Parcels пока нет.
+      .module К сожалению, вы неправильно ввели номер посылки. Попробуйте еще раз.
