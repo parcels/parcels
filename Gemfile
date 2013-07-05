@@ -20,7 +20,7 @@ gem 'normalize-rails'
 gem 'bourbon', '~>3.1.6'
 gem 'slim-rails'
 
-gem 'russianpost'
+gem 'russianpost', '0.6.0'
 gem 'iso3166_ru'
 
 gem 'pry-rails'

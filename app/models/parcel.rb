@@ -4,6 +4,7 @@ class Parcel < ActiveRecord::Base
   has_many :users, through: :subscriptions
 
   validates :barcode, uniqueness: true
+  validate :must_have_a_valid_barcode
 
   scope :outdated, -> { where('synced_at < ?', 1.hour.ago) }
 
@@ -46,5 +47,11 @@ class Parcel < ActiveRecord::Base
 
   def proxy
     @proxy ||= RussianPost::Parcel.new(self.barcode)
+  end
+
+  def must_have_a_valid_barcode
+    if !RussianPost::Barcode.new(barcode).valid?
+      errors.add(:barcode, "введен неверно")
+    end
   end
 end
