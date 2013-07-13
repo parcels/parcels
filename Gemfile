@@ -17,11 +17,14 @@ gem 'turbolinks-redirect'
 
 gem 'jquery-rails'
 gem 'normalize-rails'
-gem 'bourbon', '~>3.1.6'
-gem 'slim-rails'
+gem 'bourbon', '~> 3.1.6'
+gem 'slim-rails', '~> 2.0.1'
+
+gem 'draper', '~> 1.2.1'
 
 gem 'russianpost', '0.6.0'
 gem 'iso3166_ru'
+gem 'barby'
 
 gem 'pry-rails'
 
@@ -29,6 +32,8 @@ gem 'sidekiq', '~> 2.12.4'
 gem 'sinatra', '>= 1.3.0', :require => nil
 
 gem 'letter_opener', group: :development
+
+gem 'rails-i18n', '~> 4.0.0.pre'
 
 group :test do
   gem 'minitest-rails'

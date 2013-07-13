@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title = content_for?(:title) ? yield(:title) : "Parcels"
+    title = [content_for(:title), 'Parcels', 'Отслеживание посылок'].compact.join(' – ')
     = stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = javascript_include_tag "//use.typekit.net/hrv2dkf.js"

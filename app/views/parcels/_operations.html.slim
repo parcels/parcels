@@ -1,0 +1,21 @@
+table.operations
+  thead
+    tr
+      th colspan=7
+        h2 История операций
+    tr
+      th Статус
+      th Комментарий
+      th Дата
+      th Время
+      th Индекс
+      th Место
+      th.operation-mass Вес, кг
+  tbody
+    = render parcel.operations.reverse
+
+.table
+  .cell.disclaimer
+    | Приведенная история операций составлена по данным Почты России.
+    br
+    | Информация может быть неполной.

@@ -1,10 +1,6 @@
-- content_for :title, "Отслеживание посылок | Parcels"
-
 .wrapper
-  .module.is-only
-    p.intro 
-      | Parcels помогает узнать, где находится посылка.
-      br
-      | Бесплатно и без регистрации.
-
-    .parcel-form.is-home = render 'form'
+  .paper.is-home
+    = render 'shared/head'
+    .table
+      .cell Введите номер посылки выше. Он выглядит как XX123456789YY, если посылка международная, или как 12345678901234, если посылка из России.
+  = render 'shared/footer'

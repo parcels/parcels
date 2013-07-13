@@ -1,33 +1,37 @@
-.operation {
-  border-bottom: 1px solid #e0e1e2;
-  padding: 20px 0;
+.operations {
+  border: 1px solid #000;
   width: 100%;
 
-  &:last-child {
-    border-bottom: none;
+  th, td {
+    padding: 3px 5px 4px;
   }
+}
 
-  div {
-    display: inline-block;
-    vertical-align: top;
-  }
+.operation-type {
+  width: 120px;
 }
 
 .operation-date {
-  @include display-font;
-  text-align: right;
-  width: 43px;
-  font-size: 21px;
-  margin-top: -4px;
-  margin-right: 20px;
+  width: 80px;
 }
 
-.operation-description {
-  width: 260px;
-  margin-right: 20px;
+.operation-time {
+  width: 60px;
+}
+
+.operation-zip {
+  width: 90px;
 }
 
 .operation-place {
-  width: 355px;
-  margin-right: 20px;
+  text-transform: uppercase;
+  width: 160px;
+}
+
+.operation-comment {
+  width: 150px;
+}
+
+.operation-mass {
+  text-align: right;
 }

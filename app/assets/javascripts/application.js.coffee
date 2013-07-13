@@ -4,5 +4,11 @@
 #= require gauges
 #= require_tree .
 
+init = () ->
+
+$ ->
+  init()
+
 $(document).on 'page:change', ->
-  _gauges.push(['track']);
+  init()
+  _gauges.push(['track'])

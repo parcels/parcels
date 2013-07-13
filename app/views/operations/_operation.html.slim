@@ -1,4 +1,8 @@
-.operation
-  .operation-date        = operation.happened_at.strftime('%e.%m')
-  .operation-description = operation.operation_type
-  .operation-place       = operation.post_office
+tr.operation
+  td.operation-type    = operation.operation_type.russianpost_type
+  td.operation-comment = operation.operation_type.russianpost_attr
+  td.operation-date    = operation.happened_at.strftime('%d.%m.%y')
+  td.operation-time    = operation.happened_at.strftime('%H:%M')
+  td.operation-zip     = operation.post_office.postal_code
+  td.operation-place   = operation.post_office.name
+  td.operation-mass    = operation.mass_in_kgs

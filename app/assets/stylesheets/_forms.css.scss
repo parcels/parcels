@@ -1,74 +1,22 @@
-form * {
-  outline: none;
-}
-
-.parcel-form {
-  &.is-home {
-    margin-top: 20px;
-
-    .parcel-form-submit {
-      background: $accent;
-    }
-
-    .parcel-form-hint-short {
-      display: none;
-    }
-  }
-
-  &.is-inside {
-    display: inline-block;
-    float: right;
-    position: relative;
-    top: -5px;
-
-    .parcel-form-hint-long {
-      display: none;
-    }
-  }
-
-  * {
-    display: inline-block;
-  }
+input[type=text] {
+  font-family: 'felt-tip-senior';
 }
 
 .parcel-form-barcode {
-  width: 270px;
-  height: 41px;
-  font-size: 30px;
-  font-family: 'proxima-nova';
-  border: 1px solid #e1e2e3;
-  padding-left: 5px;
-  margin-right: 15px;
-}
-
-.parcel-form-hint-short {
-  font-size: 20px;
-  margin-right: 15px;
-  position: relative;
-  top: -4px;
-}
-
-.parcel-form-hint-long {
-  color: #909090;
-  margin-left: 20px;
-  position: relative;
-  top: -6px;
-  font-size: 18px;
-}
-
-.parcel-form-submit {
-  background: #fff;
+  width: 100%;
+  height: 100%;
   border: none;
-  border-radius: 100%;
-  font-family: 'Glyphicons';
-  height: 39px;
-  width: 39px;
-  font-size: 19px;
-  position: relative;
-  top: -2px;
+  font-size: 42px;
+  color: #0057bd;
+  text-transform: uppercase;
+  padding: 3px 8px 4px;
 
-  &:hover {
-    background: #33f;
-    color: #fff;
+  @include placeholder {
+    color: tint(#0057bd, 70%);
+  }
+
+  &:focus {
+    outline: none;
+    background: tint(#0057bd, 95%);
   }
 }
