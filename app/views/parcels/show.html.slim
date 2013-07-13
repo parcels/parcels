@@ -1,26 +1,20 @@
-- content_for :title, "#{@parcel.barcode} | Отслеживание посылок | Parcels"
+- content_for :title, parcel.barcode
 
 .wrapper
-  .module.is-head
-    = link_to root_path do
-      .logo
-    .parcel-form.is-inside = render 'form'
+  .paper
+    = render 'shared/head'
+    
+    .parcel.table
+      .cell.parcel-barcode
+        == parcel.barcode_svg
+        h1 = parcel.barcode_splitted
+      .cell.parcel-last-info
+        div
+          ' Откуда:
+          = parcel.country_name
+        - if parcel.operations.any?
+          div = parcel.days_in_transit_in_words
+    
+    = render 'operations'
 
-  - if @parcel.valid?
-    - if @parcel.operations.any?
-      .module.current_status
-        .current_status-info
-          h1 = @parcel.barcode
-          - last_operation = @parcel.operations.first
-          div = last_operation.operation_type
-          div = l last_operation.happened_at, format: :long
-          div = last_operation.post_office.name
-          div = last_operation.post_office.country.name
-
-      .module
-        h2 История операций
-        = render @parcel.operations
-    - else
-      .module К сожалению, информации о вашей посылке у Parcels пока нет.
-  - else
-      .module К сожалению, вы неправильно ввели номер посылки. Попробуйте еще раз.
+  = render 'shared/footer'

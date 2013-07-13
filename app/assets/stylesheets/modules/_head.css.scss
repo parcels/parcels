@@ -1,0 +1,33 @@
+.head {
+  height: 55px;
+
+  & > div {
+    vertical-align: middle;
+  }
+}
+
+.head-logo {
+  font-size: 33px;
+  font-weight: bold;
+  padding: 0;
+  text-align: center;
+  width: 150px;
+}
+
+.head-caption {
+  width: 200px;
+  padding-right: 50px;
+  padding-left: 14px;
+}
+
+.head-search {
+  padding: 0 !important;
+
+  form {
+    height: 100%;
+  }
+
+  &.is-link {
+    font-size: 18px;
+  }
+}

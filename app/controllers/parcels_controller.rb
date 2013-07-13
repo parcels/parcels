@@ -1,4 +1,6 @@
 class ParcelsController < ApplicationController
+  decorates_assigned :parcel
+
   def index
     @new_parcel = Parcel.new
   end

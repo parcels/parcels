@@ -5,81 +5,59 @@
 @import 'config';
 @import 'forms';
 
+@import 'layouts/parcel_layout';
+
+@import 'modules/head';
 @import 'modules/operation';
+@import 'modules/footer';
 
 * {
   @include box-sizing(border-box);
 }
 
 body {
-  @include text-font;
-  font-size: 17px;
-  background: #f2f1ef;
-  color: #3c383d;
+  font-family: $helvetica;
+  font-size: 14px;
+  background-color: #91855e;
 }
 
 .wrapper {
-  width: 830px;
-  margin: auto;
+  width: 770px;
+  margin: 50px auto;
 }
 
-.module {
-  width: 100%;
+.paper {
+  padding: 20px;
   background: #fff;
-  border-radius: 7px;
-  box-shadow: 0 1px 2px rgba(0,0,0, 0.15);
-  margin: 20px 0;
-  padding: 30px 45px;
+  width: 100%;
 
-  &.is-head {
-    background: $accent;
-    padding: 20px 45px;
-  }
-
-  &.is-only {
-    margin-top: 18%;
+  &.is-home {
+    margin-top: 25%;
   }
 }
 
-.current_status-info {
-  display: inline-block;
-  width: 330px;
-  margin-right: 20px;
+.table, table {
+  border-collapse: collapse;
+  width: 100%;
+  display: table;
+  margin-bottom: -1px;
+}
+
+.cell, td, th {
+  display: table-cell;
+  border: 1px solid #000;
   vertical-align: top;
+  padding: 7px 10px 8px;
 }
 
-.current_status-map {
-  display: inline-block;
-  width: 380px;
-  height: 220px;
+th {
+  text-align: left;
 }
 
-h1, h2, h3 {
-  @include display-font;
-}
+a {
+  color: #0057bd;
 
-h1 {
-  margin: 0;
-  font-size: 51px;
-  line-height: 51px;
-  margin-bottom: 20px;
-}
-
-h2 {
-  font-size: 35px;
-  line-height: 33px;
-  margin: 0 0 10px 0;
-}
-
-.intro {
-  font-size: 24px;
-  line-height: 30px;
-  margin: 0;
-}
-
-.logo {
-  width: 123px;
-  height: 28px;
-  background: asset-url('logo.svg') no-repeat;
-  display: inline-block;
+  &:hover {
+    color: shade(#0057bd, 20%);
+  }
 }

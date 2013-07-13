@@ -1,5 +1,5 @@
 class Parcel < ActiveRecord::Base
-  has_many :operations
+  has_many :operations, dependent: :destroy
   has_many :subscriptions
   has_many :users, through: :subscriptions
 
@@ -41,6 +41,19 @@ class Parcel < ActiveRecord::Base
 
   def queue_sync
     SyncWorker.perform_async(id)
+  end
+
+  def country
+    Iso3166Ru.find_by(alpha2: barcode[-2..-1]) ||
+      operations.first.try(:post_office).try(:country)
+  end
+
+  def time_in_transit
+    if delivered?
+      operations.where(operation_type: OperationType.delivery).first.happened_at - operations.first.happened_at
+    else
+      Time.now - operations.first.happened_at
+    end
   end
 
   private
