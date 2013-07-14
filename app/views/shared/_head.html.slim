@@ -1,5 +1,9 @@
 header.head.table
-  .cell.head-logo Parcels
+  .cell.head-logo
+    - if request.path != '/'
+      = link_to 'Parcels', root_path
+    - else
+      | Parcels
   .cell.head-caption Отслеживание посылок
   .cell.head-search = render 'form'
 
