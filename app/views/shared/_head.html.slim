@@ -1,6 +1,11 @@
 header.head.table
-  .cell.head-logo Parcels
+  .cell.head-logo
+    - if request.path == '/'
+      | Parcels
+    - else
+      = link_to 'Parcels', root_path
   .cell.head-caption Отслеживание посылок
-  .cell.head-search = render 'form'
-
-  / is-link = link_to 'Найти другую посылку', root_path
+  - if request.path == '/'
+    .cell.head-search = render 'form'
+  - else
+    .cell.head-search.is-link = link_to 'Найти другую посылку', root_path

@@ -10,6 +10,8 @@ input[type=text] {
   color: #0057bd;
   text-transform: uppercase;
   padding: 3px 8px 4px;
+  background: image-url('return.png') no-repeat;
+  background-position: 340px 18px;
 
   @include placeholder {
     color: tint(#0057bd, 70%);
@@ -17,6 +19,6 @@ input[type=text] {
 
   &:focus {
     outline: none;
-    background: tint(#0057bd, 95%);
+    background-color: tint(#0057bd, 95%);
   }
 }
