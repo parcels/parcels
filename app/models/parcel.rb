@@ -23,7 +23,7 @@ class Parcel < ActiveRecord::Base
   end
 
   def autosync
-    sync if synced_at < 1.hour.ago && !delivered?
+    sync if (synced_at.nil? || synced_at < 1.hour.ago) && !delivered?
     self
   end
 
