@@ -6,7 +6,7 @@ class ParcelsController < ApplicationController
   end
 
   def show
-    @parcel = Parcel.find_or_create_by(barcode: params[:id].upcase)
+    @parcel = Parcel.find_or_initialize_by(barcode: params[:id].upcase)
     @parcel.autosync if @parcel.valid?
   end
 
