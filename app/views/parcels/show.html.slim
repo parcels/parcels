@@ -9,9 +9,10 @@
         == parcel.barcode_svg
         h1 = parcel.barcode_splitted
       .cell.parcel-last-info
-        div
-          ' Откуда:
-          = parcel.country_name
+        -if parcel.country_name
+          div
+            ' Откуда:
+            = parcel.country_name
         - if parcel.operations.any?
           div = parcel.days_in_transit_in_words
     
