@@ -11,6 +11,6 @@ class ParcelsController < ApplicationController
   end
 
   def create
-    redirect_to parcel_path(id: params[:parcel][:barcode])
+    redirect_to parcel_path(id: params[:parcel][:barcode].upcase)
   end
 end
