@@ -1,6 +1,6 @@
 - content_for :title, parcel.barcode
 
-.wrapper
+.main
   .paper
     = render 'shared/head'
     
@@ -23,5 +23,3 @@
     
     - if parcel.valid? && parcel.operations.any?
       = render 'operations'
-
-  = render 'shared/footer'

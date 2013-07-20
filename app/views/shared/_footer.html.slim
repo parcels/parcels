@@ -1,4 +1,5 @@
 footer.footer
   ul
-    li.footer-link == "Проект #{link_to 'Артема Шитова', 'http://www.artemshitov.ru'}"
+    li.footer-link = link_to 'Артем Шитов', 'http://www.artemshitov.ru'
     li.footer-link = mail_to 'inbox@artemshitov.ru'
+    li.footer-link = link_to '@parcls', 'https://twitter.com/parcls'

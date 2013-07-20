@@ -1,0 +1,6 @@
+@mixin polka-dot($background-color, $dot-color, $dot-size: 15px, $gap: 45px)
+  $total-size: $dot-size + $gap
+  background-color: $background-color
+  @include background-image(radial-gradient($dot-color $dot-size/2 - 2px, rgba($background-color, 0) $dot-size/2), radial-gradient($dot-color $dot-size/2 - 2px, rgba($background-color, 0) $dot-size/2))
+  background-size: $total-size $total-size
+  background-position: 0 0, $total-size/2 $total-size/2

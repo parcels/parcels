@@ -1,6 +1,6 @@
 = form_for @new_parcel do |f|
   = f.text_field :barcode,
-                  placeholder: 'XX123456789US',
+                  placeholder: 'введите номер посылки',
                   required: true,
                   maxlength: 14,
                   pattern: '(^[A-Za-z]{2}\d{9}[A-Za-z]{2}$)|(^\d{14}$)',
