@@ -46,6 +46,7 @@ end
 group :production do
   gem 'rails_12factor'
   gem 'sentry-raven'
+  gem 'heroku-deflater'
 end
 
 group :doc do

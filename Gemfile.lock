@@ -63,6 +63,8 @@ GEM
     gyoku (1.0.0)
       builder (>= 2.1.2)
     hashie (2.0.5)
+    heroku-deflater (0.5.1)
+      rack (>= 1.4.5)
     hike (1.2.3)
     httpi (2.0.2)
       rack
@@ -224,6 +226,7 @@ DEPENDENCIES
   csso-rails
   draper (~> 1.2.1)
   fabrication
+  heroku-deflater
   iso3166_ru
   jquery-rails
   letter_opener
