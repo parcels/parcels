@@ -11,8 +11,7 @@ class HomeForm
 
   conformSize: ->
     targetHeight = $(window).height() - 100
-    if targetHeight <= 534 && targetHeight >= 330
-      @resize(targetHeight)
+    @resize(Math.max(330, Math.min(targetHeight, 534)))
 
   resize: (height) ->
     @mailbox.css('height', height)
