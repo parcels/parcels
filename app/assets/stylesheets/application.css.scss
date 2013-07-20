@@ -1,66 +1,21 @@
 @import 'bourbon';
 @import 'normalize-rails/normalize';
-@import 'glyphicons';
 
 @import 'config';
-@import 'forms';
+@import 'scaffy/bundle';
 
-@import 'layouts/parcel_layout';
+@import 'library/library';
+@import 'library/mixins';
+
+@import 'layouts/application';
+@import 'layouts/home';
+@import 'layouts/parcel';
 
 @import 'modules/head';
 @import 'modules/operation';
 @import 'modules/footer';
+@import 'modules/parcel_form';
 
 * {
   @include box-sizing(border-box);
-}
-
-body {
-  font-family: $helvetica;
-  font-size: 14px;
-  background: #91855e image-url('postbox.png') repeat-x;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-.wrapper {
-  width: 770px;
-  margin: 50px auto;
-}
-
-.paper {
-  padding: 20px;
-  background: #fff;
-  width: 100%;
-  box-shadow: 0 2px 5px 0 #000;
-
-  &.is-home {
-    margin-top: 28%;
-  }
-}
-
-.table, table {
-  border-collapse: collapse;
-  width: 100%;
-  display: table;
-  margin-bottom: -1px;
-}
-
-.cell, td, th {
-  display: table-cell;
-  border: 1px solid #000;
-  vertical-align: top;
-  padding: 7px 10px 8px;
-}
-
-th {
-  text-align: left;
-}
-
-a {
-  color: #0057bd;
-
-  &:hover {
-    color: shade(#0057bd, 20%);
-  }
 }

@@ -4,13 +4,11 @@ html
     title = [content_for(:title), 'Parcels', 'Отслеживание посылок'].compact.join(' – ')
     = stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
-    = javascript_include_tag "//use.typekit.net/hrv2dkf.js"
-    javascript:
-      try{Typekit.load();}catch(e){}
     = csrf_meta_tags
   
-  body
+  body class="#{yield(:body_class)}"
     - flash.each do |k, v|
       .flash class=k = v
 
-    == yield
+    .wrapper == yield
+    = render 'shared/footer'
