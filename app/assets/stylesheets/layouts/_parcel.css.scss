@@ -22,6 +22,14 @@ h2 {
   vertical-align: middle;
 }
 
+.parcel-barcode-part {
+  margin-right: 9px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
 .disclaimer {
   border: 1px solid #000;
   border-top: none;

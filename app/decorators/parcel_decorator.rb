@@ -11,7 +11,10 @@ class ParcelDecorator < Draper::Decorator
   end
 
   def barcode_splitted
-    barcode.scan(/[A-Z]{2}|\d{3}|.+/).join(' ')
+    barcode.scan(/[A-Z]{2}|\d{3}|.+/)
+      .map{ |e| h.content_tag(:span, e, class: 'parcel-barcode-part') }
+      .join('')
+      .html_safe
   end
 
   def country_name
