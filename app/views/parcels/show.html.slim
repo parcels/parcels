@@ -6,7 +6,7 @@
     
     .parcel.table
       .cell.parcel-barcode
-        == parcel.barcode_svg
+        == parcel.barcode_svg if parcel.valid?
         h1 = parcel.barcode_splitted
       .cell.parcel-last-info
         - if parcel.valid?
