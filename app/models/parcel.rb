@@ -8,8 +8,6 @@ class Parcel < ActiveRecord::Base
 
   scope :outdated, -> { where('synced_at < ?', 1.hour.ago) }
 
-  after_create :sync
-
   def sync
     transaction do
       proxy.operations.each { |po| Operation.from_proxy(po, self) }
